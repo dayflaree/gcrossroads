@@ -5,6 +5,10 @@ GM.Author 		= "RVVZ & Zenith"
 GM.Email 		= ""
 GM.Website 		= ""
 
+team.SetUp(100, "Players", Color(255, 255, 0))
+team.SetUp(101, "Admins", Color(255, 0, 0))
+
+
 function recursiveInclusion( scanDirectory, isGamemode )
 	-- Null-coalescing for optional argument
 	isGamemode = isGamemode or false
@@ -66,5 +70,9 @@ function recursiveInclusion( scanDirectory, isGamemode )
 		end
 	end
 end
-
 recursiveInclusion( GM.FolderName .. "/gamemode", true )
+
+if SERVER then
+	AddCSLuaFile(GM.FolderName .. "/gamemode/modules/player_gcrossroads.lua")
+end
+include(GM.FolderName .. "/gamemode/modules/player_gcrossroads.lua")

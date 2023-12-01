@@ -1,6 +1,6 @@
 "gcrossroads"
 {
-	"base"	"base"
+	"base"	"sandbox"
 	"title"	"gCrossroads"
 	"author" "RVVZ & Zenith"
 	"maps"		"*"
