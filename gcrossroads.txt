@@ -3,4 +3,7 @@
 	"base"	"base"
 	"title"	"gCrossroads"
 	"author" "RVVZ & Zenith"
+	"maps"		"*"
+	"category"	"pvp"
+	"menusystem"	"1"
 }
