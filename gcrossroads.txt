@@ -1,0 +1,6 @@
+"gcrossroads"
+{
+	"base"	"sandbox"
+	"title"	"gCrossroads"
+	"author" "RVVZ"
+}
