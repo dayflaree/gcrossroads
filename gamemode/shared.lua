@@ -1,7 +1,7 @@
 AddCSLuaFile()
 
-GM.Name 		= ""
-GM.Author 		= ""
+GM.Name 		= "gCrossroads"
+GM.Author 		= "RVVZ & Zenith"
 GM.Email 		= ""
 GM.Website 		= ""
 
