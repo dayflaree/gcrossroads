@@ -1,6 +1,6 @@
 "gcrossroads"
 {
-	"base"	"sandbox"
+	"base"	"base"
 	"title"	"gCrossroads"
 	"author" "RVVZ & Zenith"
 }
