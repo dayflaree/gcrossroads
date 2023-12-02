@@ -7,6 +7,12 @@ function GM:PlayerSpawn( ply, transiton )
 end
 
 hook.Add("PlayerSpawn", "SpawnGMBloxCharacter", function(ply)
+    if not IsValid(ply) or ply.HasGMBlox == true or IsValid(ply.GMBloxChar) then return end
+
+    if ply:Team() == TEAM_UNASSIGNED then
+        ply:SetTeam(100)
+    end
+
     timer.Simple(0, function() 
         if not IsValid(ply) then return end
 
@@ -47,4 +53,6 @@ end)
 hook.Add("PlayerDeath", "KillGMBloxChar", function(ply)
     if not IsValid(ply) or not IsValid(ply.GMBloxChar) then return end
     ply.GMBloxChar:SetHealthRoblox(-1)
+    ply.HasGMBlox = false
+    ply.GMBloxChar = NULL 
 end)
