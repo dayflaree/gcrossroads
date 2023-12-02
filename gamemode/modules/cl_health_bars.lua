@@ -28,7 +28,7 @@ hook.Add("PostDrawOpaqueRenderables", "RenderPlayerHealthBars", function()
         if not IsValid(v:GetController()) then continue end
         local ply = v:GetController()
         if ply == LocalPlayer() or v:IsDormant() or LocalPlayer():GetPos():Distance(v:GetPos()) >= maxdist or (v.hplerp or 1) <= 0 then continue end
-        print(v.hplerp)
+
         local pos = v:GetPos()
         local ang = EyeAngles()
 
