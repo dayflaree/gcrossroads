@@ -8,6 +8,9 @@ GM.Website 		= ""
 team.SetUp(100, "Players", Color(255, 255, 0))
 team.SetUp(101, "Admins", Color(255, 0, 0))
 
+TEAM_PLAYERS = 100
+TEAM_ADMINS = 101
+
 
 function recursiveInclusion( scanDirectory, isGamemode )
 	-- Null-coalescing for optional argument

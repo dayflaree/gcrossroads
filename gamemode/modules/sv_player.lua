@@ -9,8 +9,10 @@ end
 hook.Add("PlayerSpawn", "SpawnGMBloxCharacter", function(ply)
     if not IsValid(ply) or ply.HasGMBlox == true or IsValid(ply.GMBloxChar) then return end
 
-    if ply:Team() == TEAM_UNASSIGNED then
-        ply:SetTeam(100)
+    if ply:Team() != TEAM_ADMINS and ply:IsSuperAdmin() then
+        ply:SetTeam(TEAM_ADMINS)
+    else
+        ply:SetTeam(TEAM_PLAYERS)
     end
 
     timer.Simple(0, function() 
@@ -43,12 +45,13 @@ hook.Add("PlayerSpawn", "SpawnGMBloxCharacter", function(ply)
         ply.HasGMBlox = true
 
         ply.GMBloxChar = char
+        ply:SetNWEntity("gCrossroads.Char", char)
     end)
 end)
 
-hook.Add("PlayerInitialSpawn", "Player:SelectTeam", function(ply)
-    ply:SetTeam(100)
-end)
+function GM:PlayerDeath(vic, inf, atk)
+    vic.NextSpawnTime = CurTime() + 6
+end
 
 hook.Add("PlayerDeath", "KillGMBloxChar", function(ply)
     if not IsValid(ply) or not IsValid(ply.GMBloxChar) then return end
