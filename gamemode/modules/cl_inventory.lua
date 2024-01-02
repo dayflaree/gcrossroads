@@ -37,7 +37,7 @@ function EquipGear(gear)
         return 
     end
 
-    print("Equipping " .. geartbl.GearName)
+    --print("Equipping " .. geartbl.GearName)
     -- Equip it
     equipped_gear[geartbl.GearName] = true
     SyncGear()
