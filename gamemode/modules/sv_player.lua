@@ -6,10 +6,11 @@ function GM:PlayerSpawn( ply, transiton )
 
 end
 
+--util.AddNetworkString("gCrossroads.GMBloxCharSpawned")
 hook.Add("PlayerSpawn", "SpawnGMBloxCharacter", function(ply)
     if not IsValid(ply) or ply.HasGMBlox == true or IsValid(ply.GMBloxChar) then return end
 
-    if ply:Team() != TEAM_ADMINS and ply:IsSuperAdmin() then
+    if ply:IsSuperAdmin() then
         ply:SetTeam(TEAM_ADMINS)
     else
         ply:SetTeam(TEAM_PLAYERS)
@@ -46,7 +47,16 @@ hook.Add("PlayerSpawn", "SpawnGMBloxCharacter", function(ply)
 
         ply.GMBloxChar = char
         ply:SetNWEntity("gCrossroads.Char", char)
+        --net.Start("gCrossroads.GMBloxCharSpawned")
+        --    net.WriteEntity(char)
+        --net.Send(ply)
     end)
+end)
+
+hook.Add("PlayerDisconnected", "gCrossroads:RemoveChar", function(ply)
+    if IsValid(ply.GMBloxChar) then
+        SafeRemoveEntity(ply.GMBloxChar)
+    end
 end)
 
 function GM:PlayerDeath(vic, inf, atk)
