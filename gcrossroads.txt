@@ -2,7 +2,7 @@
 {
 	"base"	"sandbox"
 	"title"	"gCrossroads"
-	"author" "RVVZ & Zenith"
+	"author" "dayflare & Zenith"
 	"maps"		"*"
 	"category"	"pvp"
 	"menusystem"	"1"
